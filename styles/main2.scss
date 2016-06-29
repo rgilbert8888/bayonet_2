@@ -1,0 +1,804 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700);
+@import 'partials/_colors';
+@import 'partials/_mixins';
+@import 'partials/_fonts';
+
+$icon-font-path: '../fonts/';
+
+
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+
+/*APPLY SHEER OVERLAY ON TOP OF ELEMENT (EL MUST BE POS RELATIVE) */
+.sheer-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*background: rgba(66,66,66,0.8);*/
+  background:rgba(246, 186, 4, 0.5);
+  z-index: -2;
+}
+
+
+.sheer-overlay-black {
+  @extend .sheer-overlay;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.rock-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  /*background: rgba(66,66,66,0.8);*/
+  background-image: url('../images/ground.jpg');
+  background-attachment: fixed;
+
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: rgba(66,66,66,0.5);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  } 
+}
+
+/*i {
+   text-shadow: 1px 0px 2px rgba(0,0,0,0.5);
+}
+i::before {
+
+    text-shadow: 1px 0px 3px rgb(159, 92, 74);
+
+}*/
+div.bg-design { 
+    margin: 0 auto;
+    background: url('https://www.psd2html.com/bundles/intdevp2h/images/bg-product.jpg?2')  -4px 50% no-repeat;
+    /*background-size: 50%;*/
+  }
+  
+/* GENERAL LAYOUT
+-------------------------------------------------- */
+html {
+  font-size: 19px;
+}
+body {
+  background-color: $bg-color;
+  font-family: "Roboto Condensed","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+}
+
+.panel {
+  margin-bottom: 0;
+  border: 0;
+  max-width: 1200px;
+}
+
+.panel-body {
+  /*background-color: #DDDDDD;*/
+  border: 0;
+  background-color: #303030;
+  padding-bottom: 0;
+}
+
+
+hr.no-border {
+  border-style: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Roboto Condensed","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  color: #333333;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+h4 {
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.heading-container {
+  width: 100%;
+  text-align: center;
+  /*border: 1px solid blue;*/
+  padding-top: 2.5em;
+  padding-bottom: 3.5em;
+
+  h3 {
+    margin: 0 auto;
+/*    color: #333333 !important; */
+    /*font-style: italic;*/
+    text-transform: uppercase;
+  }
+}
+
+/* NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  background-color: $bg-color;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+.header-logo {
+  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  top: 0;
+  width: 100%;
+
+  a.block-logo {
+    /*width: 300px;*/
+    background-color: $logo-yellow; 
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    position: absolute;
+
+  }
+  img {
+    width: 150px;
+  }
+}
+
+
+.navbar-toggle span.icon-bar {
+  background-color: $logo-yellow;
+}
+/* change colors of the nave menu links here */
+.nav li a {
+  color: $logo-yellow;
+  /*font-weight: normal;*/
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+
+/* FOLLOWING PAGES HEADER
+-------------------------------------------------- */
+.next-page-header {
+
+
+  background-color: #e0e0e0;
+/*  background: #ECBB52;*/
+background-image:
+linear-gradient(to right, rgba(51,51,51,1), rgba(153,218,255,0.08)), 
+url('../images/crane-faded.png');
+background-repeat: no-repeat;
+background-position: top right;
+background-size: cover;
+@media screen and (min-width: 768px) {
+     background-size: contain;
+    }
+
+/*  background-image:
+  linear-gradient(to right, rgba(51,51,51,1), rgba(153,218,255,0.09));
+  */
+  .container {
+    padding: 20px;
+    padding-bottom: 30px;
+  }
+
+  h1 {
+    color: white;
+    line-height: 0.85;
+    letter-spacing: -.05em;
+    font-weight: lighter;
+
+    span {
+      color: $logo-yellow;
+      font-weight: normal;
+    } 
+  }
+
+  h4 {
+    color: white;
+  }
+
+
+
+}
+
+
+
+/* FOOTER
+-------------------------------------------------- */
+footer {
+
+  color: #e5e5e5;
+
+  h4 {
+    color: #e5e5e5;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  overflow: hidden;
+  width: 100%;
+  border-bottom: 3px solid $logo-yellow;
+}
+/* Since positioning the image, we need to help out the caption */
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  /*background-color: #777;*/
+  background-attachment: scroll;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent;
+  /*position: relative;*/
+
+  &:after {
+    @include and-after-overlay($sheer-black);
+  }
+
+  .carousel-caption {
+    z-index: 10;
+    text-align: left;
+    bottom: 20%;
+  }
+
+}
+
+#masthead .static-header .carousel-caption {
+  text-align: left;
+  position: absolute;
+  z-index: 15;
+  bottom: 10%;
+  color: $logo-yellow;
+  
+  h1 { 
+    /*font-size: 4.5em;*/
+    line-height: 0.85;
+    letter-spacing: -.05em; 
+    color: white;
+    font-weight: lighter;
+
+    span {
+      color: $logo-yellow;
+      font-weight: normal;
+      display: block;
+    }
+  }
+}
+
+ol.carousel-indicators {
+  bottom: 40px;
+
+  li {
+    border-color: rgba(246, 186, 4, 0.5);
+  }
+
+  li.active {
+    background-color: rgba(246, 186, 4, 0.5);
+  }
+}
+
+/* SECTIONS 
+-------------------------------------------------- */
+
+#features, #specs, #news, #contact-us, #models, #gallery {
+  /*border: 1px solid;*/
+  padding: 4% 3%;
+
+  .row-inner{
+ /*   border: 1px solid red;
+*/    overflow: auto;
+  }
+}
+
+
+#features {
+    padding-top: 0;
+    color: white;
+
+    h3 {
+      color: white;
+      font-weight: lighter;
+      margin-left: 0;
+    }
+
+    .features-list {
+      border: 0;
+      margin: 0;
+
+    }
+
+    .features-list li  {
+      background-color: transparent;
+      border:0;
+      font-weight: normal;
+      color: white; 
+      // font-size: $font-size-h4;
+      font-size: 20px;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 5px; 
+      padding-bottom: 5px;
+
+      &:before {
+        /*Using a Bootstrap glyphicon as the bullet point*/
+        content: "\e080";
+        font-family: 'Glyphicons Halflings';
+        font-size: 11px;
+        float: left;
+        margin-top: 4px;
+        margin-left: -17px;
+        line-height: 18px;
+        color: $logo-yellow;
+
+      }
+
+
+
+      @media screen and (min-width: 768px) {
+        padding: 10px 15px;
+      }
+    }
+}
+
+/*=========================*/ 
+
+#news {
+  background-color: white;
+
+  .news-cta {
+    margin-bottom: 25px;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+    }
+
+    h4 {
+      color: #d79c00;
+      transition: transform .2s ease-in-out;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .news-image {
+    display: block;
+    line-height: 0;
+    border-bottom: 5px solid #ffc324;
+    // margin-bottom: 25px;
+    overflow: hidden;
+    background-color: #000;
+    text-align: center;
+    min-height: 200px;
+    // max-width: 323px;
+    transition: transform .2s ease-in-out;
+    
+
+    &:hover {
+      border-bottom-color: #d79c00;
+      // filter: blur(10px);
+    }
+
+  }
+
+
+    .news-1 {
+      background: url('../images/image_1.jpg') center center no-repeat;
+      background-size: cover;
+    }    
+
+    .news-2 {
+      background: url('https://img.youtube.com/vi/CwgMtXH9ni0/hqdefault.jpg') center center no-repeat;
+      background-size: cover;
+    }    
+
+    .news-3 {
+      background: url('../images/parts.jpg') center center no-repeat;
+      background-size: cover;
+    }
+}
+
+
+
+/*======= GALLERY ==========*/
+
+#gallery {
+
+  .caption p {
+    color: white;
+  }
+
+
+  #gallery_1 {
+    background-image: url('../images/gallery-images/1_Case_580_Corporal.jpg');
+  }
+  #gallery_2 {
+    background-image: url('../images/gallery-images/2_JCB3XC_Corporal3.jpg');
+  }  
+  #gallery_3 {
+    background-image: url('../images/gallery-images/3_Military_Corporal_580 Case6.jpg');
+  }  
+  #gallery_4 {
+    background-image: url('../images/gallery-images/4_Sany75_Corproal2.jpg');
+  }  
+  #gallery_5 {
+    background-image: url('../images/gallery-images/5_CAT299_SS800.jpg');
+  } 
+  #gallery_6 {
+    background-image: url('../images/gallery-images/6_Case75C_SS800.jpg');
+  }  
+  #gallery_7 {
+    background-image: url('../images/gallery-images/7_bayonet-in-rock.jpg');
+  }  
+  #gallery_8 {
+    background-image: url('../images/gallery-images/8_290-hyundai-excavator-bayonet2.jpg');
+  }  
+  #gallery_9 {
+    background-image: url('../images/gallery-images/9_mx35-ditch-witch-exc.jpg');
+  }
+
+
+.image-container {
+    /*background-position: 10px; */
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+
+.thumbnail {
+    min-height: 140px;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 5px solid $logo-yellow;
+    transition: transform .2s ease-in-out;
+
+    @media (min-width: 498px) {
+      min-height: 200px;
+    }     
+
+    &:hover {
+      border-bottom-color: #d79c00;
+    }
+
+  }
+}
+
+
+
+
+
+
+
+
+/*=========================*/ 
+
+
+#models {
+  /*background-color: #303030;*/
+background: #ECBB52;
+background-image:
+radial-gradient(ellipse at center, rgba(153,218,255,0.09) 0%, rgba(51,51,51,1) 100%),
+url('../images/ground.jpg');
+
+
+  h3 {
+    color: white;
+  }
+
+  .model-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    @media (min-width: 998px) {
+      justify-content: center;
+    }
+  } 
+
+  .col {
+    align-self: stretch;
+
+  /*SMALL*/
+    /*display: flex;*/
+    /*flex: 1;*/
+    flex-basis: 100%;
+    flex-wrap: wrap;
+
+
+  /* BIGGER*/
+    @media (min-width: 498px) {
+      display: flex;
+      flex-direction: column;
+      padding: 1%;
+      flex-basis: 48%;
+    }   
+  /* MEDIUM*/
+    @media (min-width: 768px) {
+/*      // display: flex;
+      // padding: 1%;*/
+      flex-basis: 31.333%;
+    }   
+  
+  /*LARGE - if the max viewport is 920px, we would like the number of items per row to be limited to four */
+/*    // @media (min-width: 998px) {
+    //   // display: flex;
+    //   padding: 1%;
+    //   // background-color: pink;
+    //   flex-basis: 23%;
+    // }*/
+  }
+
+  .thumbnail { 
+    flex: 1;
+    align-self: stretch;
+    padding: 20px 10px;
+    margin-bottom: 15px;
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+    border-radius: 0;
+    background-color:#F3F3F3;
+    /*background-color: rgb(232,232,232);*/
+    /*background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff, #e0e0e0);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e0e0e0));
+    background: -webkit-linear-gradient(left top, left bottom, #ffffff, #e0e0e0);
+    background: -o-linear-gradient(top, #ffffff, #e0e0e0);
+    background: linear-gradient(to bottom, #ffffff, #e0e0e0);*/
+    
+    @media (min-width: 498px) {
+      margin-bottom:0;
+    } 
+
+    h4 {
+      font-style: normal;
+    }
+    .caption {
+      margin-top: auto;
+    }
+    .rank-icon {
+      text-transform: uppercase;
+      /*font-style: italic;*/
+      // border-bottom: 2px solid #333333;
+      border-bottom: 3px solid #ffc324;
+      font-size: 18px;
+      font-weight: 700;
+      /*font-style: italic;*/
+      /*border-width: 1px;*/
+    }
+  }
+}
+
+/*=========================*/ 
+
+
+#contact-us {
+ background-color: #303030;
+/*background: #ECBB52;
+background-image:
+radial-gradient(ellipse at center, rgba(153,218,255,0.09) 0%, rgba(51,51,51,1) 100%),
+url('../images/ground.jpg');*/
+color: white;
+/*linear-gradient(to bottom, rgba(246,186,4,0.9), rgba(224,208,127,0.7)), */
+h3, h4 {
+  color: white;
+}
+
+input, textarea {
+  border: 0;
+  border-radius: 0;
+}
+
+textarea#message {
+  height: 200px;
+}
+
+address {
+  text-align: center;
+  @media (min-width: 498px) {
+    text-align: left;
+  } 
+}
+#map-canvas {
+  color: #333333;
+    #map {
+      /*@include border-radius(50%);*/
+      background: $panel-color;
+      margin: 0 auto;
+      width: 100% !important;
+      height: 200px;
+      border: 0;
+/*      padding-left: 15px;
+      padding-right: 15px;*/
+/*      height: 300px;
+      width: 300px;*/
+     /* overflow: hidden;
+      position: relative;*/
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+button.contact-button {
+  border:0;
+  background-color: white;
+  border-radius: 0;
+  color: #333333;
+  text-transform: uppercase; 
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.contact-item {
+  flex-grow: 1;
+/*  flex-basis: 33.33%;*/
+  border:1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: stretch;
+
+  address > h3 {
+    font-weight: lighter;
+  }
+}
+
+/*.has-map {
+  padding: 0;
+  flex-grow: 0;
+  order: 3;
+}*/
+/*  .contact-row {
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+    flex-wrap: wrap;
+    overflow: auto;
+    border: 1px solid green;
+  }
+  
+  .contact-item {
+      display: flex;
+      align-items: center;
+      align-content: stretch;
+      flex-direction: column;
+      margin: 0 auto;
+      justify-content: flex-start;
+
+      address {
+        text-align: center;
+      }
+    }*/
+
+
+}
+
+
+
+/*===========================*/
+
+/*===========================*/
+
+
+
+/* REUSABLE YOUTUBE VIDEO STUFF - CHANGE ID OF PLAYER TO REUSE */
+  .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; 
+    padding-top: 25px;
+    height: 0;
+    width: 100%;
+  }
+
+  #player {   
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-bottom: 6px solid $logo-yellow;
+  }
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+}
+@media (min-width: 401px) {
+
+}
+

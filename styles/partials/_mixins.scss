@@ -1,0 +1,43 @@
+
+/* MIXINS
+-------------------------------------------------- */
+
+/* TO USE:  .box { @include border-radius(10px); } */
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin no-space-around() {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin bx-shadow($shadow-color) {
+	-moz-box-shadow: 0 2px 8px 0 $shadow-color;
+    -webkit-box-shadow: 0 2px 8px 0 $shadow-color;
+    box-shadow: 0 2px 8px 0 $shadow-color;
+}
+
+
+/* apply good spacing to a big section or div - optional background and border color */
+
+@mixin style-this-div($background-color: transparent, $border-color: transparent) { 
+    padding: 30px 35px;
+    background: $background-color;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+}
+
+/* apply a sheer overlay to &:after of an element - element must be relative position */
+
+@mixin and-after-overlay($overlay-color) {
+	content: "";
+    position: absolute;
+    background-color: $overlay-color;
+    height: 100%;
+    width: 100%;
+}
